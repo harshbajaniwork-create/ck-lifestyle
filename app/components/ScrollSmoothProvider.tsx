@@ -1,79 +1,74 @@
-import { useLayoutEffect, useRef, type ReactNode, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-import { setGlobalSmoother } from "../lib/utils";
+"use client";
 
-// Register GSAP plugins only on client side
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-}
+import { useRef, type ReactNode, useEffect, useState } from "react";
+import { setGlobalSmoother } from "../lib/utils";
 
 const ScrollSmoothProvider = ({ children }: { children: ReactNode }) => {
   const smoothWrapperRef = useRef<HTMLDivElement | null>(null);
   const smoothContentRef = useRef<HTMLDivElement | null>(null);
-  const smootherInstance = useRef<ScrollSmoother | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
-  useGSAP(() => {
-    // Ensure DOM is ready
-    if (!smoothWrapperRef.current || !smoothContentRef.current) return;
-
-    // Kill any existing ScrollSmoother instance
-    if (smootherInstance.current) {
-      smootherInstance.current.kill();
-    }
-
-    // Create ScrollSmoother instance
-    smootherInstance.current = ScrollSmoother.create({
-      wrapper: smoothWrapperRef.current,
-      content: smoothContentRef.current,
-      smooth: 1.5, // Smooth scrolling intensity
-      effects: true, // Enable data-speed effects
-      smoothTouch: 0.1, // Smooth scrolling on touch devices (mobile)
-      normalizeScroll: true, // Normalizes scrolling across different devices
-    });
-
-    // Set global reference for other components to use
-    setGlobalSmoother(smootherInstance.current);
-
-    // Refresh ScrollTrigger instances when ScrollSmoother is ready
-    ScrollTrigger.refresh();
-
-    return () => {
-      if (smootherInstance.current) {
-        smootherInstance.current.kill();
-        smootherInstance.current = null;
-        setGlobalSmoother(null); // Clear global reference
-      }
-    };
+  useEffect(() => {
+    setIsMounted(true);
   }, []);
 
-  // Handle route changes - refresh ScrollSmoother
   useEffect(() => {
-    const refreshSmoother = () => {
-      if (smootherInstance.current) {
-        // Small delay to ensure DOM is updated
+    if (!isMounted) return;
+
+    // Dynamically import GSAP only on client side
+    const initScrollSmoother = async () => {
+      const { gsap } = await import("gsap");
+      const { ScrollSmoother } = await import("gsap/ScrollSmoother");
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+
+      // Register plugins
+      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+      if (!smoothWrapperRef.current || !smoothContentRef.current) return;
+
+      // Create ScrollSmoother instance
+      const smootherInstance = ScrollSmoother.create({
+        wrapper: smoothWrapperRef.current,
+        content: smoothContentRef.current,
+        smooth: 1.5,
+        effects: true,
+        smoothTouch: 0.1,
+        normalizeScroll: true,
+      });
+
+      // Set global reference
+      setGlobalSmoother(smootherInstance);
+
+      // Refresh ScrollTrigger
+      ScrollTrigger.refresh();
+
+      // Handle route changes
+      const refreshSmoother = () => {
         setTimeout(() => {
-          // Guard again inside timeout
-          smootherInstance.current?.refresh();
+          smootherInstance?.refresh();
           ScrollTrigger.refresh();
         }, 100);
-      }
+      };
+
+      window.addEventListener("popstate", refreshSmoother);
+      window.addEventListener("hashchange", refreshSmoother);
+
+      return () => {
+        window.removeEventListener("popstate", refreshSmoother);
+        window.removeEventListener("hashchange", refreshSmoother);
+        smootherInstance?.kill();
+        setGlobalSmoother(null);
+      };
     };
 
-    // Listen for popstate events (back/forward navigation)
-    window.addEventListener("popstate", refreshSmoother);
-
-    // Also listen for hash changes
-    window.addEventListener("hashchange", refreshSmoother);
+    const cleanup = initScrollSmoother();
 
     return () => {
-      window.removeEventListener("popstate", refreshSmoother);
-      window.removeEventListener("hashchange", refreshSmoother);
+      cleanup.then((fn) => fn?.());
     };
-  }, []);
+  }, [isMounted]);
 
+  // Render simple wrapper on server, full functionality on client
   return (
     <div ref={smoothWrapperRef} id="smooth-wrapper">
       <div ref={smoothContentRef} id="smooth-content">
