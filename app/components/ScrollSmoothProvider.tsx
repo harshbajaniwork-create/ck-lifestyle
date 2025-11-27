@@ -1,12 +1,14 @@
-import { useLayoutEffect, useRef, type ReactNode } from "react";
+import { useLayoutEffect, useRef, type ReactNode, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { setGlobalSmoother } from "../lib/utils";
 
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+// Register GSAP plugins only on client side
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+}
 
 const ScrollSmoothProvider = ({ children }: { children: ReactNode }) => {
   const smoothWrapperRef = useRef<HTMLDivElement | null>(null);
@@ -48,7 +50,7 @@ const ScrollSmoothProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   // Handle route changes - refresh ScrollSmoother
-  useLayoutEffect(() => {
+  useEffect(() => {
     const refreshSmoother = () => {
       if (smootherInstance.current) {
         // Small delay to ensure DOM is updated
