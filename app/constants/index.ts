@@ -14,7 +14,7 @@ export const HERO_CONTENT = {
   description:
     "Experience the grandeur of South Gujarat's largest mall. Discover world-class shopping, dining, and entertainment all under one magnificent roof in Valsad.",
   cta: "Explore More",
-  image: "/freepik__adjust__13028.jpeg.jpg", // High quality mall image
+  image: "/freepik__adjust__13028.jpeg.webp", // High quality mall image
 };
 
 export const FACILITIES = [
@@ -24,7 +24,7 @@ export const FACILITIES = [
     description:
       "Experience movies like never before in our state-of-the-art theaters.",
     image:
-      "/freepik__a-promotional-image-for-a-movie-theater-experience__26517.png",
+      "/freepik__a-promotional-image-for-a-movie-theater-experience__26517.webp",
   },
   {
     id: 2,
@@ -32,33 +32,33 @@ export const FACILITIES = [
     description:
       "Unleash your inner gamer with our cutting-edge arcade and gaming arena.",
     image:
-      "/empty-gaming-chairs-illuminated-arcade-game-zone-shopping-center (1).jpg",
+      "/empty-gaming-chairs-illuminated-arcade-game-zone-shopping-center.webp",
   },
   {
     id: 3,
     title: "Luxury Hotel",
     description: "Stay in comfort and style at our premium hotel suites.",
-    image: "/high-end-clean-atmospheric-hotel-rooms.jpg",
+    image: "/high-end-clean-atmospheric-hotel-rooms.webp",
   },
   {
     id: 4,
     title: "Fine Dining",
     description:
       "Savor exquisite cuisines at our multi-cuisine restaurants and banquet hall.",
-    image: "/luxurious-dinner-hall-with-large-crystal-chandelier.jpg",
+    image: "/luxurious-dinner-hall-with-large-crystal-chandelier.webp",
   },
   {
     id: 5,
     title: "Arcade",
     description:
       "Fun for all ages with our extensive collection of arcade games.",
-    image: "/boy-girl-are-piloting-blue-spacecrafts-playing-arcade (1).jpg",
+    image: "/boy-girl-are-piloting-blue-spacecrafts-playing-arcade.webp",
   },
   {
     id: 6,
     title: "Shopping",
     description: "Shop from the best brands in fashion, lifestyle, and more.",
-    image: "/beautiful-couple-walking-shopping-mall.jpg",
+    image: "/beautiful-couple-walking-shopping-mall.webp",
   },
   {
     id: 7,
@@ -70,12 +70,12 @@ export const FACILITIES = [
 ];
 
 export const GALLERY_IMAGES = [
-  "/freepik__enhance__39196.jpeg.jpg",
-  "/just-look-there-there-is-exactly-what-we-were-looking.jpg",
-  "/freepik__a-medium-shot-captures-a-caucasian-man-and-woman-e__50793.png",
-  "/luxurious-dinner-hall-with-large-crystal-chandelier.jpg",
-  "/high-end-clean-atmospheric-hotel-rooms.jpg",
-  "/empty-gaming-chairs-illuminated-arcade-game-zone-shopping-center (1).jpg",
+  "/freepik__enhance__39196.jpeg.webp",
+  "/just-look-there-there-is-exactly-what-we-were-looking.webp",
+  "/freepik__a-medium-shot-captures-a-caucasian-man-and-woman-e__50793.webp",
+  "/luxurious-dinner-hall-with-large-crystal-chandelier.webp",
+  "/high-end-clean-atmospheric-hotel-rooms.webp",
+  "/empty-gaming-chairs-illuminated-arcade-game-zone-shopping-center.webp",
 ];
 
 export const LOCATION_DETAILS = {
