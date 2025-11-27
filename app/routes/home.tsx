@@ -28,8 +28,8 @@ export function meta({}: Route.MetaArgs) {
       content:
         "Experience luxury shopping, dining, and entertainment at CK Lifestyle. Your premium lifestyle destination in Valsad.",
     },
-    { property: "og:image", content: "/freepik__adjust__13028.jpeg.jpg" },
-    { property: "og:url", content: "https://cklifestyle.in" }, // Assuming domain, can be updated
+    { property: "og:image", content: "/logo.jpg" },
+    { property: "og:url", content: "https://ck-lifestyle.vercel.app" }, // Assuming domain, can be updated
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: "CK Lifestyle - Premium Mall in Valsad" },
@@ -38,7 +38,7 @@ export function meta({}: Route.MetaArgs) {
       content:
         "Experience luxury shopping, dining, and entertainment at CK Lifestyle. Your premium lifestyle destination in Valsad.",
     },
-    { name: "twitter:image", content: "/freepik__adjust__13028.jpeg.jpg" },
+    { name: "twitter:image", content: "/logo.jpg" },
   ];
 }
 
