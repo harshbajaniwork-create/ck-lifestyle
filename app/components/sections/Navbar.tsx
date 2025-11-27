@@ -52,7 +52,7 @@ export default function Navbar() {
             <img
               src="/logo-transparent.png"
               alt="CK Lifestyle"
-              className="h-14 bg-white object-contain"
+              className="h-20 bg-white object-contain"
             />
           </Link>
         </div>
