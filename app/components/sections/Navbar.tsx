@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { Menu, X } from "lucide-react";
@@ -9,10 +11,30 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      // Check if we're in the browser
+      if (typeof window !== "undefined") {
+        // Use pageYOffset which works with both regular scroll and ScrollSmoother
+        const scrollPosition =
+          window.pageYOffset || document.documentElement.scrollTop;
+        setScrolled(scrollPosition > 50);
+      }
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Initial check
+    handleScroll();
+
+    // Listen to scroll events
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Also listen to ScrollSmoother updates if available
+    const checkScrollSmoother = setInterval(() => {
+      handleScroll();
+    }, 100);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearInterval(checkScrollSmoother);
+    };
   }, []);
 
   return (

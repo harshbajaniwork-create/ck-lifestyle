@@ -1,6 +1,8 @@
 export const NAV_LINKS = [
   { name: "Home", to: "hero" },
+  { name: "About Us", to: "about" },
   { name: "Facilities", to: "facilities" },
+  { name: "Brands", to: "brands" },
   { name: "Gallery", to: "gallery" },
   { name: "Location", to: "location" },
   { name: "Contact", to: "contact" },
@@ -8,9 +10,9 @@ export const NAV_LINKS = [
 
 export const HERO_CONTENT = {
   title: "CK Lifestyle",
-  subtitle: "Experience the Ultimate Shopping & Entertainment Destination",
+  subtitle: "South Gujarat's Largest Shopping & Entertainment Destination",
   description:
-    "Discover a world of luxury, dining, and entertainment all under one roof. Your premium lifestyle destination in Valsad.",
+    "Experience the grandeur of South Gujarat's largest mall. Discover world-class shopping, dining, and entertainment all under one magnificent roof in Valsad.",
   cta: "Explore More",
   image: "/freepik__adjust__13028.jpeg.jpg", // High quality mall image
 };
@@ -58,6 +60,13 @@ export const FACILITIES = [
     description: "Shop from the best brands in fashion, lifestyle, and more.",
     image: "/beautiful-couple-walking-shopping-mall.jpg",
   },
+  {
+    id: 7,
+    title: "Banquet Hall",
+    description:
+      "Host your special events in our elegant banquet hall with world-class amenities.",
+    image: "/banquet.jpg",
+  },
 ];
 
 export const GALLERY_IMAGES = [
@@ -84,4 +93,53 @@ export const CONTACT_INFO = {
     facebook: "#",
     twitter: "#",
   },
+};
+
+export const ABOUT_CONTENT = {
+  title: "About CK Lifestyle",
+  subtitle: "South Gujarat's Largest Mall",
+  description:
+    "CK Lifestyle stands as a landmark destination in Valsad, proudly serving as South Gujarat's largest and most prestigious shopping and entertainment complex. Spanning across a magnificent space, we bring together the finest brands, world-class entertainment, and exquisite dining experiences under one roof.",
+  highlights: [
+    {
+      title: "Premium Shopping",
+      description:
+        "Home to the most sought-after national and international brands, offering an unparalleled shopping experience.",
+    },
+    {
+      title: "Entertainment Hub",
+      description:
+        "State-of-the-art cinema, gaming zones, and arcade facilities that set new standards in entertainment.",
+    },
+    {
+      title: "Culinary Excellence",
+      description:
+        "A diverse range of dining options featuring renowned food chains and fine dining restaurants.",
+    },
+    {
+      title: "Luxury Hospitality",
+      description:
+        "Premium hotel suites and banquet facilities for your special occasions and comfortable stays.",
+    },
+  ],
+};
+
+export const BRANDS = {
+  cinema: [{ name: "PVR Cinemas", logo: "/brands/pvr.png" }],
+  gaming: [{ name: "Timezone", logo: "/brands/timezonegames.png" }],
+  shopping: [
+    { name: "Snitch", logo: "/brands/snitch.png" },
+    { name: "Bonkers", logo: "/brands/bonkerscorner.png" },
+    { name: "Arvind", logo: "/brands/arvind.png" },
+    { name: "Jade Blue", logo: "/brands/jadeblue.png" },
+    { name: "Mango", logo: "/brands/mango.png" },
+    { name: "Nykaa", logo: "/brands/nykaa.png" },
+    { name: "Nike", logo: "/brands/nike.png" },
+  ],
+  dining: [
+    { name: "McDonald's", logo: "/brands/mcdonalds.png" },
+    { name: "Burger King", logo: "/brands/burgerking.png" },
+    { name: "Taco Bell", logo: "/brands/tacobell.png" },
+    { name: "Domino's", logo: "/brands/dominos.png" },
+  ],
 };
