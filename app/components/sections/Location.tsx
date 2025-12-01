@@ -46,9 +46,9 @@ export default function Location() {
           </div>
         </div>
 
-        {/* Map Embed */}
+        {/* Map Embed with Logo Overlay */}
         <div className="h-[400px] w-full rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl relative group mt-8">
-          {/* Using an iframe for the map if a URL is provided, otherwise a placeholder image */}
+          {/* Map iframe */}
           <iframe
             src={LOCATION_DETAILS.mapUrl}
             width="100%"
@@ -58,6 +58,23 @@ export default function Location() {
             loading="lazy"
             className="grayscale group-hover:grayscale-0 transition-all duration-500"
           ></iframe>
+
+          {/* Logo Overlay - positioned near the center marker */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-full pointer-events-none">
+            <div className="bg-white p-2 shadow-2xl">
+              <img
+                src="/logo-transparent.png"
+                alt="CK Lifestyle"
+                className="object-contain w-24 h-14 ml-1"
+              />
+            </div>
+            {/* Optional: Add a label below the logo */}
+            <div className="mt-2 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+              <p className="text-xs font-bold text-midnight text-center whitespace-nowrap">
+                CK Lifestyle Mall
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

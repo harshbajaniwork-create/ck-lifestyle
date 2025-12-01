@@ -80,9 +80,12 @@ export const GALLERY_IMAGES = [
 
 export const LOCATION_DETAILS = {
   address:
-    "CK Lifestyle, Near Hanuman Temple, Udwada Railway Station Daman Road, Kikarla District, Dist-Valsad. 396185",
-  mapUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3739.867253482784!2d72.9245!3d20.4355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDI2JzA3LjgiTiA3MsKwNTUnMjguMiJF!5e0!3m2!1sen!2sin!4v1631234567890!5m2!1sen!2sin", // Placeholder, would need real coords if available or use the address text
+    "CK Lifestyle, Near Hanuman Temple, Near Red Lotus Lake, Udwada Railway Station Daman Road, Kikarla District, Dist-Valsad. 396185",
+  coordinates: {
+    lat: 20.465951255269974,
+    lng: 72.90836826963603,
+  },
+  mapUrl: `https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1213.1404941517696!2d72.90836826963603!3d20.465951255269974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjDCsDI3JzU3LjQiTiA3MsKwNTQnMzIuNCJF!5e1!3m2!1sen!2sin!4v1764586309853!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade`, // Placeholder, would need real coords if available or use the address text
 };
 
 export const CONTACT_INFO = {
