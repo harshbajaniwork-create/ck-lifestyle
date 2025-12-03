@@ -25,6 +25,12 @@ export default function About() {
           <p className="text-gray-300 text-lg max-w-4xl mx-auto leading-relaxed">
             {ABOUT_CONTENT.description}
           </p>
+          <p className="text-gray-300 text-lg max-w-4xl mx-auto leading-relaxed mt-4">
+            Strategically located in Kikarla, Udvada, at National Hwy 848-B,
+            Gujarat , Nestled near the picturesque Red Lotus Lake, CK Life Style
+            offers a tranquil yet vibrant setting that blends nature with
+            commerce.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">

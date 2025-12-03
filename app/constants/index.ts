@@ -80,7 +80,7 @@ export const GALLERY_IMAGES = [
 
 export const LOCATION_DETAILS = {
   address:
-    "CK Lifestyle, Near Hanuman Temple, Near Red Lotus Lake, Udwada Railway Station Daman Road, Kikarla District, Dist-Valsad. 396185",
+    "CK Lifestyle, Near Hanuman Temple, Beside Red Lotus Lake, Udwada Railway Station Daman Road, Kikarla District, Dist-Valsad. 396185",
   coordinates: {
     lat: 20.465951255269974,
     lng: 72.90836826963603,
